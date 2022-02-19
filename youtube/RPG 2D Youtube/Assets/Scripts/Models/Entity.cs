@@ -8,6 +8,7 @@ public class Entity
 {
     [Header("Name")]
     public string name;
+    public int level;
  
     [Header("Health")]
     public int currentHealth;
@@ -23,9 +24,24 @@ public class Entity
  
     [Header("Stats")]
     public int strength = 1;
-    public int resistence = 1;
+    public int resistance = 1;
+    public int intelligence = 1;
+    public int willpower = 1;
     public int damage = 1;
     public int defense = 1;
+    public int endurance = 1;
     public float speed = 2f;
- 
+    public int points = 0;
+
+    [Header("Combat")]
+    public float attackDistance = 0.5f;
+    public float attackTimer = 1;
+    public float cooldown = 2;
+    public bool inCombat = false;
+    public GameObject target;
+    public bool combatCoroutine = false;
+    public bool isDead = false;
+
+    [Header("Component")]
+    public AudioSource entityAudio;
 }

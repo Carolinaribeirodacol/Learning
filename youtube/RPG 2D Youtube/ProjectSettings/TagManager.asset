@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Waypoint
+  - Teleport
   layers:
   - Default
   - TransparentFX
@@ -40,4 +43,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 2951374087
+    locked: 0
+  - name: Pet
+    uniqueID: 1845341123
+    locked: 0
+  - name: Player
+    uniqueID: 3437744187
     locked: 0
