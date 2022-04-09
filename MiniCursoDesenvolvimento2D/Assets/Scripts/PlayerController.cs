@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D playerRB;
     private Animator playerAnimator;
     private bool isGrounded;
+    private GameController gameController;
 
     public float speed;
     public float jumpForce;
@@ -21,6 +22,9 @@ public class PlayerController : MonoBehaviour
     {
         playerRB = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
+
+        gameController = FindObjectOfType(typeof(GameController)) as GameController;
+        gameController.playerTransform = this.transform;
     }
 
     // Update is called once per frame
