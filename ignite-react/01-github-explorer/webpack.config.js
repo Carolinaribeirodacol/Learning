@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const isDevelopment = process.env.NODE_ENV !== 'production';
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
 module.exports = {
     entry: path.resolve(__dirname, 'src', 'index.jsx'),
@@ -11,13 +12,15 @@ module.exports = {
         filename: 'bundle.js'
     },
     devServer: {
-        static: path.resolve(__dirname, 'public')
+        static: path.resolve(__dirname, 'public'),
+        hot: true
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'public', 'index.html')
-        })
-    ],
+        }),
+        isDevelopment && new ReactRefreshWebpackPlugin()
+    ].filter(Boolean),
     resolve: {
         extensions: ['.js', '.jsx']
     },
@@ -26,7 +29,19 @@ module.exports = {
             {
                 test: /\.jsx$/,
                 exclude: /node_modules/,
-                use: 'babel-loader'
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        plugins: [
+                            isDevelopment && require.resolve('react-refresh/babel')
+                        ].filter(Boolean)
+                    }
+                }
+            },
+            {
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                use: ['style-loader', 'css-loader', 'sass-loader']
             }
         ]
     }

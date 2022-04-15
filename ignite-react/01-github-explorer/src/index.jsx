@@ -1,4 +1,11 @@
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { App } from './App';
 
-render(<App />, document.getElementById('root'));
+// Create a root.
+const root = createRoot(document.getElementById('root'));
+
+// Initial render
+root.render(<App />);
+
+// Forma antiga
+// render(<App />, document.getElementById('root'));
