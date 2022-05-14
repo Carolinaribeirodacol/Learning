@@ -1,0 +1,107 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto mt-5">
+      <h2>Cadastro</h2>
+      <form method="POST" action="{% url 'signUp' %}">
+        {% csrf_token %}
+        <div class="form-group mt-3">
+          <label class="label" for="email">E-mail</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="E-mail"
+            name="email"
+          />
+        </div>
+        <div class="form-group mt-3">
+          <label class="label" for="password">Senha</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Senha"
+            name="password"
+          />
+        </div>
+        <label class="label mt-3" for="username">Nickname</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          class="form-control"
+          placeholder="Nickname"
+          onkeyup="handleChange()"
+        />
+        <div class="btn-group d-flex mt-3 mx-auto" role="group">
+          <input
+            type="radio"
+            class="btn-check"
+            name="gender"
+            id="bottts"
+            autocomplete="off"
+            value="bottts"
+            checked
+            onclick="handleChange()"
+          />
+          <label class="btn btn-purple" for="bottts">Robô</label>
+          <input
+            type="radio"
+            class="btn-check"
+            name="gender"
+            id="male"
+            autocomplete="off"
+            value="male"
+            onclick="handleChange()"
+          />
+          <label class="btn btn-purple" for="male">Homem</label>
+          <input
+            type="radio"
+            class="btn-check"
+            name="gender"
+            id="female"
+            autocomplete="off"
+            value="female"
+            onclick="handleChange()"
+          />
+          <label class="btn btn-purple" for="female">Mulher</label>
+        </div>
+        <div class="row mt-3 mx-auto">
+          <img
+            id="img"
+            src="https://avatars.dicebear.com/api/female/zero%20two.svg"
+            class="img-thumbnail"
+            alt=""
+          />
+        </div>
+        <input type="hidden" id="character_img" name="character_img" />
+        <script>
+          var gender = "bottts";
+          var username = "";
+
+          function handleChange() {
+            gender = document.querySelector(
+              'input[name="gender"]:checked'
+            ).value;
+            username = document.getElementById("username").value;
+
+            url = `https://avatars.dicebear.com/api/${gender}/${username}.svg`;
+
+            document.getElementById(
+              "img"
+            ).src = url;
+
+            document.getElementById(
+              "character_img"
+            ).value = url;
+          }
+        </script>
+        <div class="d-grid gap-2 mt-3">
+          <button class="btn btn-pink" type="submit">Cadastrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
