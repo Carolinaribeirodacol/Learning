@@ -1,8 +1,9 @@
-import './App.css'
+import { Event } from "./pages/Event";
+
 
 function App() {
   return (
-    <h1>Olá</h1>
+    <Event />
   )
 }
 
