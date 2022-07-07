@@ -4,8 +4,11 @@ import { Container } from "./style";
 export function Task() {
   return (
     <Container>
-      <h1>Tarefas</h1>
       <Header />
+      <main>
+        <h1>Você não possui nenhuma tarefa</h1>
+        <button>Adicionar nova</button>
+      </main>
     </Container>
   );
 }

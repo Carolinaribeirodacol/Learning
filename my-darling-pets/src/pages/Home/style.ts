@@ -1,7 +1,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  color: red;
+  height: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+
+  main {
+    background: red;
+    flex: 1;
+    overflow: auto;
+  }
 `;

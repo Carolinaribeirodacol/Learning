@@ -2,15 +2,14 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
   background: var(--gray);
-  max-width: 200px;
-  height: 100vh;
+  flex: 0 1 240px;
 `;
 
 export const Content = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
-  max-width: 200px;
+  max-width: 240px;
   height: 100vh;
   padding: 0;
   margin: 0;
@@ -27,6 +26,7 @@ export const Content = styled.div`
       flex-direction: column;
       margin-bottom: 2rem;
       padding: 1rem;
+      font-size: 22px;
 
       a {
         text-decoration: none;

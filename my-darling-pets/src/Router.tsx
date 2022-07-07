@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
-import { Task } from "./pages/Task/Task";
+import { Task } from "./pages/Task";
 
 export function Router() {
   return (
