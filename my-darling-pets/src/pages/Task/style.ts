@@ -1,13 +1,18 @@
-import { darken } from 'polished';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 100%;
   display: flex;
-  flex-direction: row;
-
+  height: 100%;
+  
   main {
-    flex: 1;
+    .cards {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center
+    }
+
+    /* flex: 1;
     overflow: auto;
     color: #FFF;
     display: flex;
@@ -27,6 +32,6 @@ export const Container = styled.div`
       border-radius: 100vh;
       font-weight: 600;
       color: #FFF;
-    }
+    } */
   }
 `;

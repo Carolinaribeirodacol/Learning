@@ -20,7 +20,7 @@ export function NewTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
   }
 
   return (
-    <Modal isOpen={isOpen} title="teste" onRequestClose={onRequestClose}>
+    <Modal isOpen={isOpen} title="Banho e tosa" onRequestClose={onRequestClose}>
       <Container>
         <span>Dias da semana</span>
         <CheckBox

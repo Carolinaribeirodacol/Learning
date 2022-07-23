@@ -12,6 +12,7 @@ export const Container = styled.input`
   font-size: 1.625rem;
   font-weight: 400;
   color: ${props => props.theme.colors.background};
+  cursor: text;
 
   &:focus {
     outline: none;

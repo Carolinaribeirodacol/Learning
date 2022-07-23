@@ -35,13 +35,16 @@ export function Modal({ isOpen, title, children, onRequestClose }: ModalProps) {
       overlayClassName="react-modal-overlay"
       style={customStyle}
     >
-      <Icon path={mdiClose}
-        size={1.25}
-        color="red"
-      />
-
       <Content className="react-modal-content">
+        <span className="close-modal" onClick={onRequestClose}>
+          <Icon path={mdiClose}
+            size={1.25}
+            color="red"
+          />
+        </span>
+
         <h1 className="modal-title">{title}</h1>
+        
         {children}
       </Content>
 
