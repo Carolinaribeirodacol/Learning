@@ -1,3 +1,5 @@
+import { Container } from "./style";
+
 interface CheckBoxProps {
   value: boolean;
   handleChange: () => void;
@@ -6,13 +8,56 @@ interface CheckBoxProps {
 export function CheckBox({ value, handleChange }: CheckBoxProps) {
   return (
     <>
-      <input
-        type="checkbox"
-        checked={value}
-        onChange={handleChange}
-      />
+      <Container>
+        <input
+          type="checkbox"
+          checked={value}
+          onChange={handleChange}
+        />
+        <span className="checkmark">S</span>
 
-      <h1>{String(value)}</h1>
+        <input
+          type="checkbox"
+          checked={value}
+          onChange={handleChange}
+        />
+        <span className="checkmark">T</span>
+
+        <input
+          type="checkbox"
+          checked={value}
+          onChange={handleChange}
+        />
+        <span className="checkmark">Q</span>
+
+        <input
+          type="checkbox"
+          checked={value}
+          onChange={handleChange}
+        />
+        <span className="checkmark">Q</span>
+
+        <input
+          type="checkbox"
+          checked={value}
+          onChange={handleChange}
+        />
+        <span className="checkmark">S</span>
+
+        <input
+          type="checkbox"
+          checked={value}
+          onChange={handleChange}
+        />
+        <span className="checkmark">S</span>
+
+        <input
+          type="checkbox"
+          checked={value}
+          onChange={handleChange}
+        />
+        <span className="checkmark">D</span>
+      </Container>
     </>
   );
 }

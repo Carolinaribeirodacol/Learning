@@ -1,6 +1,10 @@
 import { useState } from "react";
-import Modal from "react-modal";
+import { Button } from "../Button/Button";
 import { CheckBox } from "../CheckBox";
+import { Modal } from "../Modal";
+import { Footer } from "../Modal/style";
+import { Switch } from "../Switch";
+import { TextField } from "../TextField/TextField";
 import { Container } from "./style";
 
 interface NewTaskModalProps {
@@ -16,21 +20,19 @@ export function NewTaskModal({ isOpen, onRequestClose }: NewTaskModalProps) {
   }
 
   return (
-    <Modal
-      overlayClassName="react-modal-overlay"
-      isOpen={isOpen}
-      onRequestClose={onRequestClose}
-      className="react-modal-content"
-    >
-      <h1 className="modal-title">Configurar tarefa <strong>Banho e tosa</strong></h1>
+    <Modal isOpen={isOpen} title="teste" onRequestClose={onRequestClose}>
       <Container>
-        <div>
-          <span>Dias da semana</span>
-          <CheckBox
-            value={isChecked}
-            handleChange={handleStatusChecked}
-          />
-        </div>
+        <span>Dias da semana</span>
+        <CheckBox
+          value={isChecked}
+          handleChange={handleStatusChecked}
+        />
+
+        <span>Repetir</span>
+        <Switch />
+
+        <span>Horário da notificação</span>
+        <TextField />
       </Container>
     </Modal>
   );

@@ -1,4 +1,4 @@
-import { Header } from "../../components/Header";
+import { Header } from "../../components/Sidebar";
 import { Container } from "./style";
 
 export function Home () {

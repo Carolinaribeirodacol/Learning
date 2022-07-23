@@ -1,7 +1,8 @@
+import { darken } from 'polished';
 import styled from 'styled-components';
 
 export const Container = styled.header`
-  background: var(--gray);
+  background: ${props => darken(0.60, props.theme.colors.gray)};
   flex: 0 1 240px;
 `;
 
@@ -34,7 +35,7 @@ export const Content = styled.div`
       }
 
       &:hover {
-        background-color: var(--background);
+        background-color: ${props => props.theme.colors.background};
       }
     }
 

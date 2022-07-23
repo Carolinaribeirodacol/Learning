@@ -1,3 +1,4 @@
+import { darken } from 'polished';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -20,7 +21,7 @@ export const Container = styled.div`
     }
 
     button {
-      background-color: var(--dark-green);
+      background-color: ${props => props.theme.colors.darkGreen};
       padding: 0.6rem;
       border: none;
       border-radius: 100vh;

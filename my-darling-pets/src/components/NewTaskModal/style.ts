@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  height: 100%;
-  background-color: red;
-
+  display: flex;
+  flex-direction: column;
+  
   span {
+    margin-bottom: 1.3rem;
     font-size: 1.625rem;
   }
 `;

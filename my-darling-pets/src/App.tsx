@@ -1,14 +1,31 @@
 import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
 import { Router } from './Router';
-import { GlobalStyle } from './styles/global';
-import './styles/global.ts';
+import GlobalStyle from './styles/global';
+
+const theme = {
+  colors: {
+    purple: '#AB46D2',
+    pink: '#FF6FB5',
+    blue: '#64DFFA',
+    yellow: '#FCF69C',
+    red: '#D85555',
+    green: '#55D8C1',
+    darkGreen: '#42A997',
+    gray: '#D9D9D9',
+    background: '#303030',
+    transparent: 'transparent',
+  }
+};
 
 function App() {
   return (
-    <BrowserRouter>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Router />
-    </BrowserRouter>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
