@@ -1,22 +1,35 @@
 import Icon from "@mdi/react";
 import { mdiPencil } from '@mdi/js';
 import { Container } from "./style";
+import { useState } from "react";
+import { NewTaskModal } from "../TaskModal";
 
 interface CardProps {
-  icon: string;
+  img: string | undefined;
   title: string;
 }
 
-export function Card({ icon, title }: CardProps) {
+export function Card({ img, title }: CardProps) {
+  const [isNewTaskModalOpen, setIsNewTaskModalOpen] = useState(false);
+
+  function handleOpenTaskModal() {
+    setIsNewTaskModalOpen(true);
+  }
+
+  function handleCloseTaskModal() {
+    setIsNewTaskModalOpen(false);
+  }
+
   return (
     <Container className="card">
-      <span className="edit">
+      <NewTaskModal isOpen={isNewTaskModalOpen} onRequestClose={handleCloseTaskModal} title={title} />
+      <span className="edit" onClick={handleOpenTaskModal}>
         <Icon
           path={mdiPencil}
-          size={1.25}
+          size={1}
         />
       </span>
-      <img src={icon} alt="cat-shower" />
+      <img src={img} alt="img" />
       <h1>{title}</h1>
     </Container>
   );

@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 100%;
+  width: 100%;
+  color: #FFF;
+  margin: 1rem;
   display: flex;
-  flex-direction: row;
-
-  main {
-    background: red;
-    flex: 1;
-    overflow: auto;
-  }
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;

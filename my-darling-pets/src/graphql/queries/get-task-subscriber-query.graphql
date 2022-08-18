@@ -1,0 +1,12 @@
+query GetTaskSubscriber ($id: ID = "") {
+  subscriber(where: {id: $id}) {
+    task {
+      alarm_time
+      description
+      id
+      repeat
+      stage
+      type_id
+    }
+  }
+}

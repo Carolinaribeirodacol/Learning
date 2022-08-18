@@ -1,43 +1,33 @@
 import { useState } from "react";
-import { Header } from "../../components/Sidebar";
-import { NewTaskModal } from "../../components/NewTaskModal";
+import { NewTaskModal } from "../../components/TaskModal";
 import { Container } from "./style";
 import { Card } from "../../components/Card";
-import CatShower from '../../assets/cat-shower.png';
-import Medicine from '../../assets/medicine.png';
-import Tooth from '../../assets/tooth.png';
+import { useGetTaskTypesQuery } from "../../graphql/generated";
 
 
 export function Task() {
-  const [isNewTaskModalOpen, setIsNewTaskModalOpen] = useState(false);
+  const [isTaskModalOpen, setIsTaskModalOpen] = useState(false);
 
-  function handleOpenNewTaskModal() {
-    setIsNewTaskModalOpen(true);
-  }
+  const { data } = useGetTaskTypesQuery();
 
-  function handleCloseNewTaskModal() {
-    setIsNewTaskModalOpen(false);
+  function handleCloseTaskModal() {
+    setIsTaskModalOpen(false);
   }
 
   return (
     <Container>
-      <NewTaskModal isOpen={isNewTaskModalOpen} onRequestClose={handleCloseNewTaskModal} />
-      <Header />
-      <main>
-        {/* Caso não existam tasks: */}
-        {/* <h1>Você não possui nenhuma tarefa</h1>
-        <button type="button" onClick={handleOpenNewTaskModal}>Adicionar nova</button> */}
-
-        {/* Caso existam tasks: */}
+      <div className="content">
         <div className="cards">
-          <Card icon={CatShower} title="Banho e tosa" />
-          <Card icon={Medicine} title="Vacinas" />
-          <Card icon={CatShower} title="Cortar unhas" />
-          <Card icon={Tooth} title="Limpeza dentária" />
-          <Card icon={CatShower} title="Consulta" />
-          <Card icon={CatShower} title="Cirurgia" />
+          {data?.taskTypes.map(taskType => {
+            return (
+              <>
+                <NewTaskModal isOpen={isTaskModalOpen} onRequestClose={handleCloseTaskModal} title={taskType.name} />
+                <Card img={taskType.img?.url} title={taskType.name} />
+              </>
+            );
+          })}
         </div>
-      </main>
+      </div>
     </Container>
   );
 }

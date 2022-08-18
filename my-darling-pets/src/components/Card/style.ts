@@ -5,13 +5,15 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 200px;
+  flex-wrap: wrap;
+
   height: auto;
   background-color: ${props => props.theme.colors.darkGreen};
   color: #EEE;
   padding: 1rem;
   border-radius: 1rem;
-  font-size: 0.7rem;
+  width: 260px;
+  font-size: 0.6rem;
 
   .edit {
     width: 100%;
@@ -22,6 +24,7 @@ export const Container = styled.div`
 
   img {
     width: 100px;
+    border-radius: 100%;
   }
 
 `;

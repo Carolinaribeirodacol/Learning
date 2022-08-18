@@ -1,0 +1,10 @@
+mutation CreateSubscriberTask ($id: ID = "", $type_id: Int = 10) {
+  createTaskModel(data: {subscriber: {connect: {id: $id}}, type_id: $type_id}) {
+    alarm_time
+    description
+    id
+    repeat
+    stage
+    type_id
+  }
+}

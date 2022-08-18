@@ -9,6 +9,7 @@ export const Content = styled.div`
       padding: 1.6rem;
       position: relative;
       border-radius: 1.125rem;
+      border: none;
     }
 
     .modal-title {

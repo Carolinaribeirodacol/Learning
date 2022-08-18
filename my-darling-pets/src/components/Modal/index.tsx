@@ -11,28 +11,26 @@ interface ModalProps {
   isOpen: boolean;
   title: string;
   children: ReactNode;
+  undoButtonFooter?: () => void;
+  saveButtonFooter?: () => void;
   onRequestClose: () => void;
 }
 
 const customStyle = {
   content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
+    margin: 'auto',
+    verticalAlign: 'middle',
     padding: '2rem',
-    borderRadius: '1rem'
-  }
+    borderRadius: '1rem',
+    webkitOverflowScrolling: 'touch',
+  },
 }
 
-export function Modal({ isOpen, title, children, onRequestClose }: ModalProps) {
+export function Modal({ isOpen, title, children, onRequestClose, undoButtonFooter, saveButtonFooter }: ModalProps) {
   return (
     <ReactModal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
-      overlayClassName="react-modal-overlay"
       style={customStyle}
     >
       <Content className="react-modal-content">
@@ -49,10 +47,10 @@ export function Modal({ isOpen, title, children, onRequestClose }: ModalProps) {
       </Content>
 
       <Footer>
-        <Button color="transparent">
-          Deletar
+        <Button color="transparent" onClick={undoButtonFooter} >
+          Voltar
         </Button>
-        <Button color="darkGreen">
+        <Button color="darkGreen" onClick={saveButtonFooter} >
           Salvar
         </Button>
       </Footer>

@@ -1,0 +1,12 @@
+query GetPetSubscriber ($id: ID = "cl6ycw3w25qmn0bkoyhk3akph") {
+  subscriber(where: {id: $id}) {
+    pets {
+      age
+      breed
+      id
+      name
+      weight
+      height
+    }
+  }
+}

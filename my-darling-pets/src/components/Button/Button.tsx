@@ -4,12 +4,12 @@ import { Container } from "./style";
 interface ButtonProps {
   children: ReactNode;
   color: 'red' | 'darkGreen' | 'transparent';
-  // onClick: () => void;
+  onClick?: () => void;
 }
 
-export function Button ({ color, children }: ButtonProps) {
+export function Button ({ color, children, onClick }: ButtonProps) {
   return (
-    <Container color={color} >
+    <Container color={color} onClick={onClick} >
       {children}
     </Container>
   );

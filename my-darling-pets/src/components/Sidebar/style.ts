@@ -1,22 +1,24 @@
 import { darken } from 'polished';
 import styled from 'styled-components';
 
-export const Container = styled.header`
+export const Container = styled.div`
   background: ${props => darken(0.60, props.theme.colors.gray)};
-  flex: 0 1 240px;
+  display: flex;
+  min-height: 100vh;
 `;
 
-export const Content = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  max-width: 240px;
-  height: 100vh;
-  padding: 0;
-  margin: 0;
-  color: #fff;
+export const Content = styled.header`
+  flex: none;
+  width: 14rem;
+  
+  main {
+    padding: 1rem;
+    overflow: auto;
+    flex: 110%;
+    min-width: 0;
+    color: #fff;
 
-  ul {
+    ul {
     height: 100%;
     width: 100%;
     list-style: none;
@@ -42,5 +44,6 @@ export const Content = styled.div`
     li:first-child {
       margin-bottom: 8rem;
     }
+  }
   }
 `;

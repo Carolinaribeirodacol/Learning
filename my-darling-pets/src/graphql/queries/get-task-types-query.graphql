@@ -1,0 +1,15 @@
+query GetTaskTypes {
+  taskTypes {
+    id
+    name
+    img {
+      id
+      fileName
+      handle
+      height
+      width
+      mimeType
+      url
+    }
+  }
+}

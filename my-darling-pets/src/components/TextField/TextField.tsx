@@ -1,7 +1,14 @@
 import { Container } from "./style";
 
-export function TextField() {
+interface TextFieldProps {
+  placeholder: string;
+  type?: string;
+}
+
+export function TextField({ placeholder }: TextFieldProps) {
   return (
-    <Container></Container>
+    <Container>
+      <input type="text" placeholder={placeholder} />
+    </Container>
   );
 }

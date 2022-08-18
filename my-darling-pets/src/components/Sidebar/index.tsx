@@ -1,17 +1,23 @@
 import { Link } from "react-router-dom";
 import { Container, Content } from "./style";
 
-export function Header() {
+export function Sidebar() {
   return (
     <Container>
       <Content>
-        <ul>
-          <li>Carolina</li>
-          <li>
-            <Link to="/tarefas">Tarefas</Link>
-          </li>
-          <li>Dicas</li>
-        </ul>
+        <main>
+          <ul>
+            <li>
+              <Link to="/">Tarefas</Link>
+            </li>
+            <li>
+              <Link to="/tarefas">Tarefas</Link>
+            </li>
+            <li>
+              <Link to="/pets">Meus pets</Link>
+            </li>
+          </ul>
+        </main>
       </Content>
     </Container>
   );
